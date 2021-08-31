@@ -10,8 +10,13 @@ import (
 )
 
 func main() {
-	s := rand.NewSource(time.Now().UnixNano())
-	r := rand.New(s)
+	naming(1)
+	naming(2)
+	naming(3)
+	naming(4)
+	naming(5)
+}
+func naming(syllables int) {
 	//rVIndex := r.Intn(6)
 	//rCIndex := r.Intn(20)
 	var v [6]string
@@ -42,6 +47,15 @@ func main() {
 	con[17] = "w"
 	con[18] = "x"
 	con[19] = "z"
+    syl := ""
+	for i := 1; i <= syllables; i++ {
+		syl = syl + genSyl("")
+	}
+    fmt.Println(syl)
+}
+func genSyl(nameChunk string) string { 
+	s := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(s)
 	n, err := os.Open("names.txt")
 	if err != nil {
 		log.Fatal(err)
@@ -54,22 +68,14 @@ func main() {
 		names[j] = scanner.Text()
 		j++
 	}
+
 	fIndex := r.Intn(150)
-	lIndex := r.Intn(150)
 	fHalf := names[fIndex]
-	lHalf := names[lIndex]
 	fWLen := len(fHalf)
-	lWLen := len(lHalf)
-	name := ""
 	for k, c := range fHalf {
 		if k < fWLen/2 {
-			name = name + string(c)
+			nameChunk = nameChunk + string(c)
 		}
 	}
-	for l, c := range lHalf {
-		if l > lWLen/2 {
-			name = name + string(c)
-		}
-	}
-	fmt.Println(name)
+return nameChunk
 }
