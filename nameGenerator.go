@@ -11,9 +11,9 @@ import (
 )
 
 func main() {
-	naming(2)
-	naming(2)
-	naming(2)
+for i:=1; i<=10; i++ {
+    naming(2)
+}
 }
 func naming(syllables int) {
 	name := ""
