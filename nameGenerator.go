@@ -16,7 +16,6 @@ func main() {
 	}
 }
 func naming(syllables int) {
-	prevName := ""
 NAME:
 	name := ""
 	fName, lName := genSyl("", "")
@@ -34,10 +33,6 @@ NAME:
 			goto NAME
 		}
 	}
-	if prevName == name {
-		goto NAME
-	}
-	prevName = name
 	fmt.Println(strings.Title(name))
 }
 func genSyl(nameBeginning, nameEnding string) (string, string) {
