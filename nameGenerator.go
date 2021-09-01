@@ -18,7 +18,10 @@ func main() {
 }
 func naming(syllables int) {
 	//rVIndex := r.Intn(6)
+    //vTracker := 0
 	//rCIndex := r.Intn(20)
+    //cTracker := 0
+    /*
 	var v [6]string
 	v[0] = "a"
 	v[1] = "e"
@@ -47,6 +50,7 @@ func naming(syllables int) {
 	con[17] = "w"
 	con[18] = "x"
 	con[19] = "z"
+    */
 	syl := ""
 	for i := 1; i <= syllables; i++ {
 		syl = syl + genSyl("")
@@ -73,7 +77,7 @@ func genSyl(nameChunk string) string {
 	fHalf := names[fIndex]
 	fWLen := len(fHalf)
 	for k, c := range fHalf {
-		if k < fWLen/2 {
+		if k <= fWLen/2 {
 			nameChunk = nameChunk + string(c)
 		}
     }
