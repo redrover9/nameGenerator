@@ -17,13 +17,12 @@ func main() {
 }
 func naming(syllables int) {
 	name := ""
-	for i := 1; i <= syllables; i++ {
-		name = name + genSyl("")
-	}
-    name = strings.ToLower(name)
+	fName, lName := genSyl("", "")
+    name = fName + lName
+	name = strings.ToLower(name)
 	fmt.Println(strings.Title(name))
 }
-func genSyl(nameChunk string) string {
+func genSyl(nameBeginning, nameEnding string) (string, string) {
 	s := rand.NewSource(time.Now().UnixNano())
 	r := rand.New(s)
 	n, err := os.Open("names.txt")
@@ -38,14 +37,21 @@ func genSyl(nameChunk string) string {
 		names[j] = scanner.Text()
 		j++
 	}
-
 	fIndex := r.Intn(150)
+	lIndex := r.Intn(150)
 	fHalf := names[fIndex]
+	lHalf := names[lIndex]
 	fWLen := len(fHalf)
+	lWLen := len(lHalf)
 	for k, c := range fHalf {
 		if k <= fWLen/2 {
-			nameChunk = nameChunk + string(c)
+			nameBeginning = nameBeginning + string(c)
 		}
 	}
-	return nameChunk
+	for l, c := range lHalf {
+		if l >= lWLen/2 {
+			nameEnding = nameEnding + string(c)
+		}
+	}
+    return nameBeginning, nameEnding
 }
