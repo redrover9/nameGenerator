@@ -6,6 +6,7 @@ import (
 	"log"
 	"math/rand"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -14,7 +15,6 @@ func main() {
 	naming(2)
 	naming(3)
 	naming(4)
-	naming(5)
 }
 func naming(syllables int) {
 	//rVIndex := r.Intn(6)
@@ -47,13 +47,13 @@ func naming(syllables int) {
 	con[17] = "w"
 	con[18] = "x"
 	con[19] = "z"
-    syl := ""
+	syl := ""
 	for i := 1; i <= syllables; i++ {
 		syl = syl + genSyl("")
 	}
-    fmt.Println(syl)
+	fmt.Println(strings.ToUpper(syl))
 }
-func genSyl(nameChunk string) string { 
+func genSyl(nameChunk string) string {
 	s := rand.NewSource(time.Now().UnixNano())
 	r := rand.New(s)
 	n, err := os.Open("names.txt")
@@ -76,6 +76,6 @@ func genSyl(nameChunk string) string {
 		if k < fWLen/2 {
 			nameChunk = nameChunk + string(c)
 		}
-	}
-return nameChunk
+    }
+	return nameChunk
 }
