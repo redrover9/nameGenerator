@@ -20,7 +20,8 @@ func naming(syllables int) {
 	for i := 1; i <= syllables; i++ {
 		name = name + genSyl("")
 	}
-	fmt.Println(strings.ToUpper(name))
+    name = strings.ToLower(name)
+	fmt.Println(strings.Title(name))
 }
 func genSyl(nameChunk string) string {
 	s := rand.NewSource(time.Now().UnixNano())
