@@ -16,11 +16,23 @@ for i:=1; i<=10; i++ {
 }
 }
 func naming(syllables int) {
-	name := ""
+	NAME: name := ""
 	fName, lName := genSyl("", "")
     name = fName + lName
 	name = strings.ToLower(name)
-	fmt.Println(strings.Title(name))
+	cCount := 0
+    for _, c := range name {
+        if string(c) == "a" || string(c) == "e" || string(c) == "i" || string(c) == "o" || string(c) == "u" || string(c) == "y" {
+            cCount = 0
+        } else { 
+        cCount++
+     }
+    if cCount >= 3 {
+        name = ""
+        goto NAME
+    }
+    }
+    fmt.Println(strings.Title(name))
 }
 func genSyl(nameBeginning, nameEnding string) (string, string) {
 	s := rand.NewSource(time.Now().UnixNano())
