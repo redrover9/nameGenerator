@@ -12,7 +12,7 @@ import (
 
 func main() {
 	naming(2)
-    naming(2)
+	naming(2)
 	naming(2)
 }
 func naming(syllables int) {
@@ -45,6 +45,6 @@ func genSyl(nameChunk string) string {
 		if k <= fWLen/2 {
 			nameChunk = nameChunk + string(c)
 		}
-    }
+	}
 	return nameChunk
 }
