@@ -51,11 +51,11 @@ func naming(syllables int) {
 	con[18] = "x"
 	con[19] = "z"
     */
-	syl := ""
+	name := ""
 	for i := 1; i <= syllables; i++ {
-		syl = syl + genSyl("")
+		name = name + genSyl("")
 	}
-	fmt.Println(strings.ToUpper(syl))
+	fmt.Println(strings.ToUpper(name))
 }
 func genSyl(nameChunk string) string {
 	s := rand.NewSource(time.Now().UnixNano())
