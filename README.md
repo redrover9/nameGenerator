@@ -1,2 +1,2 @@
 # nameGenerator
-Right now it generates a name by sticking two halves of unusual names together...improvements to follow...
+Generate names with ./nameGenerator, then feed them to the neural network with python3 main.py --text "name1 name2 name3 etc." 
