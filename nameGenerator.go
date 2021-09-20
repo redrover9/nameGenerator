@@ -50,8 +50,8 @@ func genSyl(nameBeginning, nameEnding string) (string, string) {
 		names[j] = scanner.Text()
 		j++
 	}
-	fIndex := r.Intn(150)
-	lIndex := r.Intn(150)
+	fIndex := r.Intn(1150)
+	lIndex := r.Intn(1150)
 	fHalf := names[fIndex]
 	lHalf := names[lIndex]
 	fWLen := len(fHalf)
