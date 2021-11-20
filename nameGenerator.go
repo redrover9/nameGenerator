@@ -22,21 +22,21 @@ NAME:
 	name = fName + lName
 	name = strings.ToLower(name)
 	cCount := 0
-    vCount := 0
+	vCount := 0
 	for _, c := range name {
 		if string(c) == "a" || string(c) == "e" || string(c) == "i" || string(c) == "o" || string(c) == "u" || string(c) == "y" {
 			cCount = 0
-            vCount++
+			vCount++
 		} else {
-            vCount = 0
+			vCount = 0
 			cCount++
 		}
 		if cCount >= 3 {
 			goto NAME
 		}
-        if vCount >= 3 {
-            goto NAME
-        }
+		if vCount >= 3 {
+			goto NAME
+		}
 	}
 	fmt.Println(strings.Title(name))
 }
